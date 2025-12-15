@@ -54,6 +54,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        _attackBoxCollider.DoAttack();
+        if (context.performed)
+        {
+            _attackBoxCollider.DoAttack();
+        }
     }
 }

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class AttackArea : MonoBehaviour
 {
+    [SerializeField] private int damage;
+    
     private BoxCollider2D _collider;
 
     private void Awake()
@@ -24,7 +26,11 @@ public class AttackArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hit " + other.name);
-        // Apply damage here
+        if (other.CompareTag("Attackable"))
+        {
+            Debug.Log("Hit " + other.name);
+            Tree tree = other.gameObject.GetComponent<Tree>();
+            tree.GetHit(damage);
+        }
     }
 }

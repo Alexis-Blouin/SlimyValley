@@ -2,15 +2,26 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private int hp;
+    [SerializeField] private int minLog;
+    [SerializeField] private int maxLog;
+    [SerializeField] private GameObject log;
+
+    public void GetHit(int damage)
     {
-        
+        hp -= damage;
+        if (hp <= 0)
+        {
+            Die();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Die()
     {
-        
+        for (var i = Random.Range(minLog, maxLog); i <= maxLog; i++)
+        {
+            Instantiate(log, transform.position, Quaternion.identity);
+        }
+        Destroy(gameObject);
     }
 }
