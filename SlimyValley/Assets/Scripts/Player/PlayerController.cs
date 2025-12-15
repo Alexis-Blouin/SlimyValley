@@ -5,17 +5,27 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private GameObject attackNode;
+    [SerializeField] private float attackOffset;
 
     private Vector2 _direction;
     
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+
+    private AttackArea _attackBoxCollider;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+
+        _attackBoxCollider = attackNode.GetComponent<AttackArea>();
+    }
+
+    void Update()
+    {
+        transform.Translate(_direction * (speed * Time.deltaTime), Space.World);
     }
     
     public void OnMove(InputAction.CallbackContext context)
@@ -36,9 +46,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnAttack(InputAction.CallbackContext context)
     {
-        transform.Translate(_direction * (speed * Time.deltaTime), Space.World);
+        _attackBoxCollider.DoAttack();
     }
 }
