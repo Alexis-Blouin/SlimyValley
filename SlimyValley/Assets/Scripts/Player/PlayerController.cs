@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private GameObject attackNode;
-    [SerializeField] private float attackOffset;
+    [SerializeField] private Vector2 attackOffset;
 
     private Vector2 _direction;
     
@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         _direction = context.ReadValue<Vector2>();
         _animator.SetBool("Xmov", _direction.x is > 0.0f or < 0.0f);
         _animator.SetFloat("Ymov", _direction.y);
+        
         if (_direction.x != 0.0f)
         {
             if (_direction.x < 0.0f)
@@ -43,6 +44,11 @@ public class PlayerController : MonoBehaviour
             {
                 _spriteRenderer.flipX = false;
             }
+        }
+
+        if (_direction != Vector2.zero)
+        {
+            attackNode.transform.position = transform.position + new Vector3(attackOffset.x * _direction.x, attackOffset.y * _direction.y, attackNode.transform.position.z);
         }
     }
 
