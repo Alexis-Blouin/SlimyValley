@@ -3,12 +3,18 @@ using UnityEngine;
 
 public class PlayerCollisionHandler : MonoBehaviour
 {
+    private PlayerInventory _playerInventory;
+
+    private void Start()
+    {
+        _playerInventory = GetComponent<PlayerInventory>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name);
-        if (other.CompareTag("Item"))
+        if (other.TryGetComponent(out InstanceItemContainer foundItem))
         {
-            Destroy(other.gameObject);
+            _playerInventory.AddItem(foundItem);
         }
     }
 }

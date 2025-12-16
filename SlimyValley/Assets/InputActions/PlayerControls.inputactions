@@ -25,6 +25,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "DropItem",
+                    "type": "Button",
+                    "id": "8ce49483-cf9a-45f8-8760-2b99ae5a1927",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Item1",
                     "type": "Button",
                     "id": "33bf9d5b-31d9-464a-90d7-088603abb518",
@@ -109,6 +118,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Item1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a665142b-23c1-4d23-9c16-7fe32e8f81be",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DropItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

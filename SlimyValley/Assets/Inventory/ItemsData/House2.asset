@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c34d316044177c545b51f650d00d40af, type: 3}
+  m_Name: House2
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemName: House2
+  icon: {fileID: 21300000, guid: af83f82f5ffdc5d459a9d17905ce2a62, type: 3}
+  droppedModel: {fileID: 0}
+  placedModel: {fileID: 6878658193457718820, guid: c0f965199eca0704db025b6190171f5e, type: 3}
+  count: 1
+  maxCount: 1

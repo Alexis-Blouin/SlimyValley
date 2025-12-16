@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6930377204409725913}
+  - component: {fileID: 9041056739637954345}
   - component: {fileID: 5304383658702186512}
   - component: {fileID: 8961824670285932775}
   - component: {fileID: 7326731081966548884}
-  - component: {fileID: 4312587020261198343}
   m_Layer: 0
   m_Name: Log
   m_TagString: Item
@@ -35,6 +35,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9041056739637954345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7394198470906490307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92debaa3fcdab64fba01ba500f572e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InstanceItemContainer
+  item:
+    itemType: {fileID: 11400000, guid: 1223b767ae663de4f8467aeb56e499bb, type: 2}
+    count: 1
 --- !u!212 &5304383658702186512
 SpriteRenderer:
   serializedVersion: 2
@@ -167,15 +182,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4312587020261198343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7394198470906490307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b5cbc2973d27df48a534518f326c3f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Log

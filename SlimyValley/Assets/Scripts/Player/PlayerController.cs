@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+    
+    private PlayerInventory _playerInventory;
 
     private AttackArea _attackBoxCollider;
 
@@ -23,6 +25,8 @@ public class PlayerController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        _playerInventory = GetComponent<PlayerInventory>();
 
         _attackBoxCollider = attackNode.GetComponent<AttackArea>();
     }
@@ -88,5 +92,12 @@ public class PlayerController : MonoBehaviour
         
         _placingObject = Instantiate(inHandObject);
         _isPlacing = true;
+    }
+
+    public void OnDropItem(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        _playerInventory.DropItem(0);
     }
 }
