@@ -14,7 +14,8 @@ public class PlayerCollisionHandler : MonoBehaviour
     {
         if (other.TryGetComponent(out InstanceItemContainer foundItem))
         {
-            _playerInventory.AddItem(foundItem);
+            if (foundItem.CanTakeItem())
+                _playerInventory.AddItem(foundItem);
         }
     }
 }

@@ -1,4 +1,7 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class InstanceItemContainer : MonoBehaviour
 {
@@ -8,6 +11,27 @@ public class InstanceItemContainer : MonoBehaviour
     private Vector2 _targetPos;
     private float _moveTime = 0.3f;
     private float _timer;
+    
+    private bool _canTake = false;
+    private float _canTakeTimer = 0.5f;
+
+    private void Start()
+    {
+        StartCoroutine(EnableCanTakeAfterDelay());
+    }
+
+    private void Update()
+    {
+        _timer += Time.deltaTime;
+        var t = _timer / _moveTime;
+
+        transform.position = Vector2.Lerp(_startPos, _targetPos, t);
+    }
+
+    public bool CanTakeItem()
+    {
+        return _canTake;
+    }
 
     public ItemInstance TakeItem()
     {
@@ -24,12 +48,10 @@ public class InstanceItemContainer : MonoBehaviour
 
         _targetPos = _startPos + randomDir * distance;
     }
-
-    void Update()
+    
+    private IEnumerator EnableCanTakeAfterDelay()
     {
-        _timer += Time.deltaTime;
-        var t = _timer / _moveTime;
-
-        transform.position = Vector2.Lerp(_startPos, _targetPos, t);
+        yield return new WaitForSeconds(_canTakeTimer);
+        _canTake = true;
     }
 }

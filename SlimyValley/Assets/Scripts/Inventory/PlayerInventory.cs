@@ -16,7 +16,7 @@ public class PlayerInventory : MonoBehaviour
         // GameObject droppedItem = new GameObject();
         // droppedItem.AddComponent<Rigidbody>();
         // droppedItem.AddComponent<InstanceItemContainer>().item = inventory.items[itemIndex];
-        var itemModel = Instantiate(inventory.items[itemIndex].itemType.droppedModel, Vector3.zero, Quaternion.identity);
+        var itemModel = Instantiate(inventory.items[itemIndex].itemType.droppedModel, transform.position, Quaternion.identity);
         itemModel.GetComponent<InstanceItemContainer>().MoveOndrop(direction);
 
         // Removes the item from the inventory
