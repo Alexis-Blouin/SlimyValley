@@ -10,13 +10,14 @@ public class PlayerInventory : MonoBehaviour
         inventory.AddItem(foundItem.TakeItem());
     }
     
-    public void DropItem(int itemIndex)
+    public void DropItem(int itemIndex, Vector2 direction)
     {
         // Creates a new object and gives it the item data
         // GameObject droppedItem = new GameObject();
         // droppedItem.AddComponent<Rigidbody>();
         // droppedItem.AddComponent<InstanceItemContainer>().item = inventory.items[itemIndex];
-        GameObject itemModel = Instantiate(inventory.items[itemIndex].itemType.droppedModel, Vector3.zero, Quaternion.identity);
+        var itemModel = Instantiate(inventory.items[itemIndex].itemType.droppedModel, Vector3.zero, Quaternion.identity);
+        itemModel.GetComponent<InstanceItemContainer>().MoveOndrop(direction);
 
         // Removes the item from the inventory
         inventory.items.RemoveAt(itemIndex);

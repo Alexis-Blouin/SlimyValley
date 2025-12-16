@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject inHandObject;
 
     private Vector2 _direction;
+    private Directions _currentDirection;
     
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
@@ -20,6 +21,18 @@ public class PlayerController : MonoBehaviour
 
     private bool _isPlacing = false;
     private GameObject _placingObject;
+
+    private enum Directions
+    {
+        Top,
+        Bottom,
+        Left,
+        Right,
+        TopLeft,
+        TopRight,
+        BottomLeft,
+        BottomRight
+    }
     
     void Start()
     {
@@ -68,6 +81,32 @@ public class PlayerController : MonoBehaviour
         if (_direction != Vector2.zero)
         {
             attackNode.transform.position = transform.position + new Vector3(attackOffset.x * _direction.x, attackOffset.y * _direction.y, attackNode.transform.position.z);
+
+            if (_direction is { x: < 0.0f, y: 0.0f })
+            {
+                _currentDirection = Directions.Left;
+            } else if (_direction is { x: > 0.0f, y: 0.0f })
+            {
+                _currentDirection = Directions.Right;
+            }else if (_direction is { x: 0.0f, y: < 0.0f })
+            {
+                _currentDirection = Directions.Bottom;
+            }else if (_direction is { x: 0.0f, y: > 0.0f })
+            {
+                _currentDirection = Directions.Top;
+            }else if (_direction is { x: < 0.0f, y: < 0.0f })
+            {
+                _currentDirection = Directions.BottomLeft;
+            }else if (_direction is { x: > 0.0f, y: < 0.0f })
+            {
+                _currentDirection = Directions.BottomRight;
+            }else if (_direction is { x: < 0.0f, y: > 0.0f })
+            {
+                _currentDirection = Directions.TopLeft;
+            }else if (_direction is { x: > 0.0f, y: > 0.0f })
+            {
+                _currentDirection = Directions.TopRight;
+            }
         }
     }
 
@@ -98,6 +137,31 @@ public class PlayerController : MonoBehaviour
     {
         if (!context.performed) return;
 
-        _playerInventory.DropItem(0);
+        _playerInventory.DropItem(0, GetDirectionVector2());
+    }
+
+    private Vector2 GetDirectionVector2()
+    {
+        switch (_currentDirection)
+        {
+            case Directions.Top:
+                return Vector2.up;
+            case Directions.Bottom:
+                return Vector2.down;
+            case Directions.Left:
+                return Vector2.left;
+            case Directions.Right:
+                return Vector2.right;
+            case Directions.TopLeft:
+                return (Vector2.up + Vector2.left).normalized;
+            case Directions.TopRight:
+                return (Vector2.up + Vector2.right).normalized;
+            case Directions.BottomLeft:
+                return (Vector2.down + Vector2.left).normalized;
+            case Directions.BottomRight:
+                return (Vector2.down + Vector2.right).normalized;
+            default:
+                return Vector2.zero;
+        }
     }
 }

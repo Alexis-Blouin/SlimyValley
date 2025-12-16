@@ -20,7 +20,8 @@ public class Tree : MonoBehaviour
     {
         for (var i = Random.Range(minLog, maxLog); i <= maxLog; i++)
         {
-            Instantiate(log, transform.position, Quaternion.identity);
+            var droppedLog = Instantiate(log, transform.position, Quaternion.identity);
+            droppedLog.GetComponent<InstanceItemContainer>().MoveOndrop();
         }
         Destroy(gameObject);
     }

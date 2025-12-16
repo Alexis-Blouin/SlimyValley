@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3494585921722548244}
+  - component: {fileID: 4238731257926765053}
   - component: {fileID: 4986361419170079524}
   - component: {fileID: 9076542042297675631}
   - component: {fileID: 74767793383056047}
-  - component: {fileID: 4238731257926765053}
   m_Layer: 0
   m_Name: TreeSnow
   m_TagString: Attackable
@@ -35,6 +35,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4238731257926765053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8198858371888109351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abac62ffd9a12204a8a5f1c512d818a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tree
+  hp: 3
+  minLog: 1
+  maxLog: 3
+  log: {fileID: 7394198470906490307, guid: 72ae81528def70744988ccd4f70e0f62, type: 3}
 --- !u!212 &4986361419170079524
 SpriteRenderer:
   serializedVersion: 2
@@ -167,19 +183,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4238731257926765053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8198858371888109351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abac62ffd9a12204a8a5f1c512d818a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tree
-  hp: 3
-  minLog: 1
-  maxLog: 3
-  log: {fileID: 7394198470906490307, guid: 72ae81528def70744988ccd4f70e0f62, type: 3}
