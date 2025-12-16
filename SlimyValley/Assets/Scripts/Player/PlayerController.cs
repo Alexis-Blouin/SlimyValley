@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private GameObject attackNode;
     [SerializeField] private Vector2 attackOffset;
+    [SerializeField] private GameObject inHandObject;
 
     private Vector2 _direction;
     
@@ -14,6 +15,9 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
 
     private AttackArea _attackBoxCollider;
+
+    private bool _isPlacing = false;
+    private GameObject _placingObject;
     
     void Start()
     {
@@ -26,6 +30,17 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         transform.Translate(_direction * (speed * Time.deltaTime), Space.World);
+
+        if (_isPlacing)
+        {
+            Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
+
+            Vector3 mouseWorld =
+                Camera.main.ScreenToWorldPoint(mouseScreenPos);
+            mouseWorld.z = 0f;
+            
+            _placingObject.transform.position = mouseWorld;
+        }
     }
     
     public void OnMove(InputAction.CallbackContext context)
@@ -52,11 +67,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnAttack(InputAction.CallbackContext context)
+    public void OnLeftClick(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            _attackBoxCollider.DoAttack();
+            if (_isPlacing)
+            {
+                _isPlacing = false;
+            }
+            else
+            {
+                _attackBoxCollider.DoAttack();
+            }
         }
+    }
+
+    public void OnItem1Equipped(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+        
+        _placingObject = Instantiate(inHandObject);
+        _isPlacing = true;
     }
 }
