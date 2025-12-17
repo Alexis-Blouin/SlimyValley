@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private bool _isPlacing = false;
     private GameObject _placingObject;
+    private int _activeHandItem = 0;
 
     private enum Directions
     {
@@ -127,17 +128,53 @@ public class PlayerController : MonoBehaviour
 
     public void OnItem1Equipped(InputAction.CallbackContext context)
     {
+        ChangeHandItem(context, 0);
+    }
+    
+    public void OnItem2Press(InputAction.CallbackContext context)
+    {
+        ChangeHandItem(context, 1);
+    }
+    
+    public void OnItem3Press(InputAction.CallbackContext context)
+    {
+        ChangeHandItem(context, 2);
+    }
+
+    private void ChangeHandItem(InputAction.CallbackContext context, int index)
+    {
         if (!context.performed) return;
-        
-        _placingObject = Instantiate(inHandObject);
-        _isPlacing = true;
+        Debug.Log(index + 1);
+        _activeHandItem = index;
+
+        if (_isPlacing)
+        {
+            Destroy(_placingObject);
+            _isPlacing = false;
+        }
+
+        if (!_playerInventory.HasIndex(index))
+        {
+            _activeHandItem = index;
+        }
+    }
+    
+    public void OnPlaceItem(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        if (_playerInventory.CanPlaceIndex(_activeHandItem))
+        {
+            _placingObject = Instantiate(_playerInventory.GetPlaceIndex(_activeHandItem));
+            _isPlacing = true;
+        }
     }
 
     public void OnDropItem(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
 
-        _playerInventory.DropItem(0, GetDirectionVector2());
+        _playerInventory.DropItem(_activeHandItem, GetDirectionVector2());
     }
 
     private Vector2 GetDirectionVector2()

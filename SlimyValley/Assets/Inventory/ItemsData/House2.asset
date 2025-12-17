@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: House2
   icon: {fileID: 21300000, guid: af83f82f5ffdc5d459a9d17905ce2a62, type: 3}
-  droppedModel: {fileID: 0}
+  droppedModel: {fileID: 7394198470906490307, guid: 37eff6b23ad537b449a92cbda321ac40, type: 3}
+  placable: 1
   placedModel: {fileID: 6878658193457718820, guid: c0f965199eca0704db025b6190171f5e, type: 3}
   count: 1
   maxCount: 1

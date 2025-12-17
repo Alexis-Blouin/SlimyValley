@@ -119,6 +119,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &22036487
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6930377204409725913, guid: 37eff6b23ad537b449a92cbda321ac40, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.451647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930377204409725913, guid: 37eff6b23ad537b449a92cbda321ac40, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.7364335
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930377204409725913, guid: 37eff6b23ad537b449a92cbda321ac40, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930377204409725913, guid: 37eff6b23ad537b449a92cbda321ac40, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930377204409725913, guid: 37eff6b23ad537b449a92cbda321ac40, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930377204409725913, guid: 37eff6b23ad537b449a92cbda321ac40, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930377204409725913, guid: 37eff6b23ad537b449a92cbda321ac40, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930377204409725913, guid: 37eff6b23ad537b449a92cbda321ac40, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930377204409725913, guid: 37eff6b23ad537b449a92cbda321ac40, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930377204409725913, guid: 37eff6b23ad537b449a92cbda321ac40, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394198470906490307, guid: 37eff6b23ad537b449a92cbda321ac40, type: 3}
+      propertyPath: m_Name
+      value: House2Item
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37eff6b23ad537b449a92cbda321ac40, type: 3}
 --- !u!1 &344050682
 GameObject:
   m_ObjectHideFlags: 0
@@ -2877,6 +2934,82 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8ce49483-cf9a-45f8-8760-2b99ae5a1927
     m_ActionName: 'Gameplay/DropItem[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1825881923}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnItem2Press
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2a94ffc2-ab3c-424a-80f6-39ba54602a02
+    m_ActionName: 'Gameplay/Item2[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1825881923}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnItem3Press
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c9985dc6-1100-4536-a4b7-4cd6df2f650a
+    m_ActionName: 'Gameplay/Item3[/Keyboard/3]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6c0e424c-f09b-44e7-a3d1-790d89b96c7a
+    m_ActionName: 'Gameplay/Item4[/Keyboard/4]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6af4d894-9982-4df6-b8b6-6a69739bdb97
+    m_ActionName: 'Gameplay/Item5[/Keyboard/5]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 59c48af3-e97f-4341-bee2-58488c2f11c3
+    m_ActionName: 'Gameplay/Item6[/Keyboard/6]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 602ada75-ec10-4aa5-983c-6acc095188c5
+    m_ActionName: 'Gameplay/Item7[/Keyboard/7]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e47a4276-1319-446e-8494-01f3802e3d1b
+    m_ActionName: 'Gameplay/Item8[/Keyboard/8]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: afcaea22-3a14-4fa7-9e8d-e26642694bb2
+    m_ActionName: 'Gameplay/Item9[/Keyboard/9]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 46cfc61f-6e49-4af0-bf8e-23b27018737e
+    m_ActionName: 'Gameplay/Item0[/Keyboard/0]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1825881923}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPlaceItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ae18ed3d-46c2-4c90-bce0-6bed07eb844c
+    m_ActionName: 'Gameplay/PlaceItem[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -4362,3 +4495,4 @@ SceneRoots:
   - {fileID: 6969226341329240720}
   - {fileID: 344050684}
   - {fileID: 2901124767767512336}
+  - {fileID: 22036487}

@@ -1,8 +1,34 @@
+using System;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
     public DynamicInventory inventory;
+
+    private void Start()
+    {
+        inventory.Init();
+    }
+
+    public bool HasIndex(int index)
+    {
+        return inventory.HasIndex(index);
+    }
+
+    public bool CanPlaceIndex(int index)
+    {
+        return inventory.CanPlaceIndex(index);
+    }
+
+    public GameObject GetIndex(int index)
+    {
+        return inventory.GetIndex(index);
+    }
+    
+    public GameObject GetPlaceIndex(int index)
+    {
+        return inventory.GetPlaceIndex(index);
+    }
 
     public void AddItem(InstanceItemContainer foundItem)
     {
@@ -20,7 +46,7 @@ public class PlayerInventory : MonoBehaviour
         itemModel.GetComponent<InstanceItemContainer>().MoveOndrop(direction);
 
         // Removes the item from the inventory
-        inventory.items.RemoveAt(itemIndex);
+        inventory.RemoveIndex(itemIndex);
 
         // Updates the inventory again
         // UpdateInventory();
