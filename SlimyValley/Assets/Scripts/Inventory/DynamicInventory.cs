@@ -28,7 +28,6 @@ public class DynamicInventory : ScriptableObject
             // If the item is there and that is not at max, we can increment it
             if (items[i].itemType == itemToAdd.itemType && items[i].count < itemToAdd.itemType.maxCount)
             {
-                Debug.Log("here");
                 items[i].count += itemToAdd.count;
                 return true;
             }
@@ -47,7 +46,7 @@ public class DynamicInventory : ScriptableObject
     
     public bool HasIndex(int index)
     {
-        return items[index] != null;
+        return items[index].itemType != null;
     }
 
     public bool CanPlaceIndex(int index)
@@ -65,8 +64,15 @@ public class DynamicInventory : ScriptableObject
         return items[index].itemType.droppedModel;
     }
 
-    public void RemoveIndex(int index)
+    public void DropIndex(int index)
     {
-        items[index] = null;
+        if (items[index].count > 1)
+        {
+            items[index].count -= 1;
+        }
+        else
+        {
+            items[index] = null;
+        }
     }
 }

@@ -144,7 +144,6 @@ public class PlayerController : MonoBehaviour
     private void ChangeHandItem(InputAction.CallbackContext context, int index)
     {
         if (!context.performed) return;
-        Debug.Log(index + 1);
         _activeHandItem = index;
 
         if (_isPlacing)
