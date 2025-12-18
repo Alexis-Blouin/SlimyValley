@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private GameObject attackNode;
     [SerializeField] private Vector2 attackOffset;
-    [SerializeField] private GameObject hand;
+    [SerializeField] private Hand hand;
 
     private Vector2 _direction;
     private Directions _currentDirection;
@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
 
     private bool _isPlacing = false;
     private GameObject _placingObject;
-    private int _activeHandItem = 0;
 
     private enum Directions
     {
@@ -125,8 +124,10 @@ public class PlayerController : MonoBehaviour
             if (_isPlacing)
             {
                 _placingObject = null;
-                _playerInventory.PlaceItem(_activeHandItem);
+                _playerInventory.PlaceItem(hand.activeHandItem);
                 _isPlacing = false;
+
+                hand.UpdateHandSprite();
             }
             else
             {
@@ -153,29 +154,24 @@ public class PlayerController : MonoBehaviour
     private void ChangeHandItem(InputAction.CallbackContext context, int index)
     {
         if (!context.performed) return;
-        _activeHandItem = index;
+        hand.activeHandItem = index;
 
         if (_isPlacing)
         {
             Destroy(_placingObject);
             _isPlacing = false;
         }
-
         
-        if (_playerInventory.HasIndex(index))
-        {
-            _activeHandItem = index;
-            _spriteRendererHand.sprite = _playerInventory.GetSpriteIndex(_activeHandItem);
-        }
+        hand.UpdateHandSprite();
     }
     
     public void OnPlaceItem(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
 
-        if (_playerInventory.CanPlaceIndex(_activeHandItem))
+        if (_playerInventory.CanPlaceIndex(hand.activeHandItem))
         {
-            _placingObject = Instantiate(_playerInventory.GetPlaceIndex(_activeHandItem));
+            _placingObject = Instantiate(_playerInventory.GetPlaceIndex(hand.activeHandItem));
             _isPlacing = true;
         }
     }
@@ -184,7 +180,9 @@ public class PlayerController : MonoBehaviour
     {
         if (!context.performed) return;
 
-        _playerInventory.DropItem(_activeHandItem, GetDirectionVector2());
+        _playerInventory.DropItem(hand.activeHandItem, GetDirectionVector2());
+
+        hand.UpdateHandSprite();
     }
 
     private Vector2 GetDirectionVector2()

@@ -532,7 +532,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -603,6 +603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512805995}
+  - component: {fileID: 1512805997}
   - component: {fileID: 1512805996}
   m_Layer: 0
   m_Name: Hand
@@ -685,6 +686,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1512805997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512805994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206b46e6ae26983458f690fede8c4832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hand
+  activeHandItem: 0
 --- !u!1 &1554929744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2898,10 +2912,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e50b994934676d4bbdd32ce7bdbe4cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  speed: 100
+  speed: 200
   attackNode: {fileID: 1171001349}
   attackOffset: {x: 0.4, y: 0.4}
-  hand: {fileID: 1512805994}
+  hand: {fileID: 1512805997}
 --- !u!114 &1825881924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3256,6 +3270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bdd9c7738ba10143b9b944401c22975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisionHandler
+  hand: {fileID: 1512805997}
 --- !u!114 &1825881932
 MonoBehaviour:
   m_ObjectHideFlags: 0
