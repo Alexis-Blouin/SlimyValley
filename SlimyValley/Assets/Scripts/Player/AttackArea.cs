@@ -28,7 +28,7 @@ public class AttackArea : MonoBehaviour
     {
         if (other.CompareTag("Attackable"))
         {
-            var tree = other.gameObject.GetComponent<Tree>();
+            var tree = other.gameObject.GetComponent<ATree>();
             tree.GetHit(damage);
         }
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Tree : MonoBehaviour
+public class ATree : MonoBehaviour
 {
     [SerializeField] private int hp;
     [SerializeField] private int minLog;
