@@ -7,13 +7,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private GameObject attackNode;
     [SerializeField] private Vector2 attackOffset;
-    [SerializeField] private GameObject inHandObject;
+    [SerializeField] private GameObject hand;
 
     private Vector2 _direction;
     private Directions _currentDirection;
     
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+    private SpriteRenderer _spriteRendererHand;
     
     private PlayerInventory _playerInventory;
 
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRendererHand = hand.GetComponent<SpriteRenderer>();
         
         _playerInventory = GetComponent<PlayerInventory>();
 
@@ -154,9 +156,11 @@ public class PlayerController : MonoBehaviour
             _isPlacing = false;
         }
 
-        if (!_playerInventory.HasIndex(index))
+        
+        if (_playerInventory.HasIndex(index))
         {
             _activeHandItem = index;
+            _spriteRendererHand.sprite = _playerInventory.GetSpriteIndex(_activeHandItem);
         }
     }
     

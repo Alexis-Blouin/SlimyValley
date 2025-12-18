@@ -65,6 +65,11 @@ public class DynamicInventory : ScriptableObject
     {
         return items[index].itemType.droppedModel;
     }
+
+    public Sprite GetSpriteIndex(int index)
+    {
+        return items[index].itemType.icon;
+    }
     
     public GameObject GetPlaceIndex(int index)
     {

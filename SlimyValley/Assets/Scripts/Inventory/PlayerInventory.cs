@@ -27,6 +27,11 @@ public class PlayerInventory : MonoBehaviour
     {
         return _runtimeInventory.GetIndex(index);
     }
+
+    public Sprite GetSpriteIndex(int index)
+    {
+        return _runtimeInventory.GetSpriteIndex(index);
+    }
     
     public GameObject GetPlaceIndex(int index)
     {
