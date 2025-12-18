@@ -243,6 +243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 344050684}
   - component: {fileID: 344050683}
+  - component: {fileID: 344050685}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -288,6 +289,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &344050685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344050682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 335d65e031693004f8aca83cbc8d0431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemBar
+  playerInventory: {fileID: 1825881932}
 --- !u!1 &349062594
 GameObject:
   m_ObjectHideFlags: 0
@@ -3283,6 +3297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff1f46ad60ce3a458763fe0805bdb24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
+  itemBar: {fileID: 344050685}
   baseInventory: {fileID: 11400000, guid: e466a209b5519b34592d3050890bd848, type: 2}
 --- !u!1 &2038907466
 GameObject:

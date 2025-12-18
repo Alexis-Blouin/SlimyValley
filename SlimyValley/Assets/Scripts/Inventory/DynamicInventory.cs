@@ -71,6 +71,11 @@ public class DynamicInventory : ScriptableObject
         return items[index].itemType.icon;
     }
     
+    public int GetCountIndex(int index)
+    {
+        return items[index].count;
+    }
+    
     public GameObject GetPlaceIndex(int index)
     {
         return items[index].itemType.placedModel;

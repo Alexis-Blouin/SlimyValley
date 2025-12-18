@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
+    [SerializeField] private ItemBar itemBar;
+    
     public DynamicInventory baseInventory;
 
     private DynamicInventory _runtimeInventory;
 
-    private void Start()
+    private void Awake()
     {
         _runtimeInventory = Instantiate(baseInventory);
         _runtimeInventory.Init();
@@ -33,6 +35,11 @@ public class PlayerInventory : MonoBehaviour
         return _runtimeInventory.GetSpriteIndex(index);
     }
     
+    public int GetCountIndex(int index)
+    {
+        return _runtimeInventory.GetCountIndex(index);
+    }
+    
     public GameObject GetPlaceIndex(int index)
     {
         return _runtimeInventory.GetPlaceIndex(index);
@@ -41,6 +48,7 @@ public class PlayerInventory : MonoBehaviour
     public void AddItem(InstanceItemContainer foundItem)
     {
         _runtimeInventory.AddItem(foundItem.TakeItem());
+        itemBar.UpdateUI();
     }
     
     public void DropItem(int itemIndex, Vector2 direction)
@@ -59,10 +67,12 @@ public class PlayerInventory : MonoBehaviour
 
         // Updates the inventory again
         // UpdateInventory();
+        itemBar.UpdateUI();
     }
 
     public void PlaceItem(int itemIndex)
     {
         _runtimeInventory.LowerIndex(itemIndex);
+        itemBar.UpdateUI();
     }
 }
