@@ -17,28 +17,33 @@ public class DynamicInventory : ScriptableObject
 
     public bool AddItem(ItemInstance itemToAdd)
     {
-        // Finds an empty slot if there is one
+        if (itemToAdd == null || itemToAdd.itemType == null)
+        {
+            Debug.LogError("Trying to add invalid ItemInstance");
+            return false;
+        }
+        
+        // Try stacking first
         for (int i = 0; i < items.Count; i++)
         {
-            if (items[i].itemType == null)
-            {
-                items[i] = itemToAdd;
-                return true;
-            }
-            // If the item is there and that is not at max, we can increment it
-            if (items[i].itemType == itemToAdd.itemType && items[i].count < itemToAdd.itemType.maxCount)
+            if (items[i] != null &&
+                items[i].itemType == itemToAdd.itemType &&
+                items[i].count < itemToAdd.itemType.maxCount)
             {
                 items[i].count += itemToAdd.count;
                 return true;
             }
         }
 
-        // Adds a new item if the inventory has space
-        // if (items.Count < maxItems)
-        // {
-        //     items.Add(itemToAdd);
-        //     return true;
-        // }
+        // Then find empty slot
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i] == null)
+            {
+                items[i] = itemToAdd;
+                return true;
+            }
+        }
 
         Debug.Log("No space in the inventory");
         return false;
@@ -46,12 +51,14 @@ public class DynamicInventory : ScriptableObject
     
     public bool HasIndex(int index)
     {
-        return items[index].itemType != null;
+        return index >= 0 &&
+               index < items.Count &&
+               items[index] != null;
     }
 
     public bool CanPlaceIndex(int index)
     {
-        return items[index].itemType.placable;
+        return HasIndex(index) && items[index].itemType.placable;
     }
 
     public GameObject GetIndex(int index)
@@ -61,10 +68,10 @@ public class DynamicInventory : ScriptableObject
     
     public GameObject GetPlaceIndex(int index)
     {
-        return items[index].itemType.droppedModel;
+        return items[index].itemType.placedModel;
     }
 
-    public void DropIndex(int index)
+    public void LowerIndex(int index)
     {
         if (items[index].count > 1)
         {

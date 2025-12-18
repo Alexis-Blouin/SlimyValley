@@ -117,6 +117,8 @@ public class PlayerController : MonoBehaviour
         {
             if (_isPlacing)
             {
+                _placingObject = null;
+                _playerInventory.PlaceItem(_activeHandItem);
                 _isPlacing = false;
             }
             else
@@ -178,26 +180,17 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 GetDirectionVector2()
     {
-        switch (_currentDirection)
+        return _currentDirection switch
         {
-            case Directions.Top:
-                return Vector2.up;
-            case Directions.Bottom:
-                return Vector2.down;
-            case Directions.Left:
-                return Vector2.left;
-            case Directions.Right:
-                return Vector2.right;
-            case Directions.TopLeft:
-                return (Vector2.up + Vector2.left).normalized;
-            case Directions.TopRight:
-                return (Vector2.up + Vector2.right).normalized;
-            case Directions.BottomLeft:
-                return (Vector2.down + Vector2.left).normalized;
-            case Directions.BottomRight:
-                return (Vector2.down + Vector2.right).normalized;
-            default:
-                return Vector2.zero;
-        }
+            Directions.Top => Vector2.up,
+            Directions.Bottom => Vector2.down,
+            Directions.Left => Vector2.left,
+            Directions.Right => Vector2.right,
+            Directions.TopLeft => (Vector2.up + Vector2.left).normalized,
+            Directions.TopRight => (Vector2.up + Vector2.right).normalized,
+            Directions.BottomLeft => (Vector2.down + Vector2.left).normalized,
+            Directions.BottomRight => (Vector2.down + Vector2.right).normalized,
+            _ => Vector2.zero
+        };
     }
 }

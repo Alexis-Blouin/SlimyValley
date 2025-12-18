@@ -13,24 +13,4 @@ MonoBehaviour:
   m_Name: DynamicInventory
   m_EditorClassIdentifier: Assembly-CSharp::DynamicInventory
   maxItems: 10
-  items:
-  - itemType: {fileID: 11400000, guid: 1223b767ae663de4f8467aeb56e499bb, type: 2}
-    count: 1
-  - itemType: {fileID: 11400000, guid: 4ee2496ed4b185d4da4a98dc4fd43d40, type: 2}
-    count: 1
-  - itemType: {fileID: 0}
-    count: 0
-  - itemType: {fileID: 0}
-    count: 0
-  - itemType: {fileID: 0}
-    count: 0
-  - itemType: {fileID: 0}
-    count: 0
-  - itemType: {fileID: 0}
-    count: 0
-  - itemType: {fileID: 0}
-    count: 0
-  - itemType: {fileID: 0}
-    count: 0
-  - itemType: {fileID: 0}
-    count: 0
+  items: []
