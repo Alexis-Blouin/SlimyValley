@@ -7,5 +7,5 @@
 - https://tienlev.itch.io/slime-pixel-set
 - https://artyem-khilya.itch.io/nature-invader-pack
 
-### Inventory system
+### Inventory System
 - https://gamedevbeginner.com/how-to-make-an-inventory-system-in-unity/#items
