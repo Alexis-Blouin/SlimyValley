@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+    private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRendererHand;
     
     private PlayerInventory _playerInventory;
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _rigidbody = GetComponent<Rigidbody2D>();
         _spriteRendererHand = hand.GetComponent<SpriteRenderer>();
         
         _playerInventory = GetComponent<PlayerInventory>();
@@ -49,8 +51,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(_direction * (speed * Time.deltaTime), Space.World);
-
         if (_isPlacing)
         {
             Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
@@ -62,7 +62,12 @@ public class PlayerController : MonoBehaviour
             _placingObject.transform.position = mouseWorld;
         }
     }
-    
+
+    private void FixedUpdate()
+    {
+        _rigidbody.linearVelocity = _direction * (speed * Time.fixedDeltaTime);
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         _direction = context.ReadValue<Vector2>();
