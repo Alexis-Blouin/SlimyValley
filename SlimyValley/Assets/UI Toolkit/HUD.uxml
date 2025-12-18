@@ -1,9 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ui:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ui="UnityEngine.UIElements"
-    xmlns:uie="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
->
-    
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/HUD.uss?fileID=7433441132597879392&amp;guid=93f50d30c19c21648ae01e9e42c6f971&amp;type=3#HUD"/>
+    <ui:VisualElement name="ItemBar" style="flex-grow: 1; flex-shrink: 1; align-items: stretch; flex-direction: row; margin-top: 0; align-self: stretch;">
+        <ui:VisualElement name="" class="ItemSlot">
+            <ui:VisualElement name="" class="ItemSlotImage" style="background-image: url(&quot;project://database/Assets/Sprites/Nature%202D%20graphics/constructions/construction_1/construction_icon.png?fileID=2800000&amp;guid=af83f82f5ffdc5d459a9d17905ce2a62&amp;type=3#construction_icon&quot;); flex-grow: 1;"/>
+            <ui:Label text="2" class="ItemSlotLabel"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="" class="ItemSlot">
+            <ui:VisualElement name="" class="ItemSlotImage" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/Nature%202D%20graphics/constructions/construction_1/construction_icon.png?fileID=2800000&amp;guid=af83f82f5ffdc5d459a9d17905ce2a62&amp;type=3#construction_icon&quot;);"/>
+            <ui:Label text="2" class="ItemSlotLabel"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="" class="ItemSlot">
+            <ui:VisualElement name="" class="ItemSlotImage" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/Nature%202D%20graphics/constructions/construction_1/construction_icon.png?fileID=2800000&amp;guid=af83f82f5ffdc5d459a9d17905ce2a62&amp;type=3#construction_icon&quot;);"/>
+            <ui:Label text="2" class="ItemSlotLabel"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>
