@@ -123,9 +123,8 @@ public class PlayerController : MonoBehaviour
         {
             if (_isPlacing)
             {
-                _placingObject = null;
                 _playerInventory.PlaceItem(hand.activeHandItem);
-                _isPlacing = false;
+                StopPlacing();
 
                 hand.UpdateHandSprite();
             }
@@ -158,8 +157,7 @@ public class PlayerController : MonoBehaviour
 
         if (_isPlacing)
         {
-            Destroy(_placingObject);
-            _isPlacing = false;
+            StopPlacing(true);
         }
         
         hand.UpdateHandSprite();
@@ -179,10 +177,21 @@ public class PlayerController : MonoBehaviour
     public void OnDropItem(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
+        
+        StopPlacing(true);
 
         _playerInventory.DropItem(hand.activeHandItem, GetDirectionVector2());
 
         hand.UpdateHandSprite();
+    }
+
+    private void StopPlacing(bool destroy = false)
+    {
+        if (destroy)
+            Destroy(_placingObject);
+        else
+            _placingObject = null;
+        _isPlacing = false;
     }
 
     private Vector2 GetDirectionVector2()
