@@ -4,11 +4,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float walkSpeed;
+    [SerializeField] private float runSpeed;
     [SerializeField] private GameObject attackNode;
     [SerializeField] private Vector2 attackOffset;
     [SerializeField] private Hand hand;
 
+
+    private float _speed;
     private Vector2 _direction;
     private Directions _currentDirection;
     
@@ -38,6 +41,8 @@ public class PlayerController : MonoBehaviour
     
     void Start()
     {
+        _speed = walkSpeed;
+        
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -64,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.linearVelocity = _direction * (speed * Time.fixedDeltaTime);
+        _rigidbody.linearVelocity = _direction * (_speed * Time.fixedDeltaTime);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -115,6 +120,14 @@ public class PlayerController : MonoBehaviour
                 _currentDirection = Directions.TopRight;
             }
         }
+    }
+
+    public void OnRun(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            _speed = runSpeed;
+        else if (context.canceled)
+            _speed = walkSpeed;
     }
 
     public void OnLeftClick(InputAction.CallbackContext context)
