@@ -28,15 +28,9 @@ public class ItemBar : MonoBehaviour
             {
                 var sprite = playerInventory.GetSpriteIndex(i);
 
-                if (sprite != null)
-                {
-                    slotImages[i].style.backgroundImage =
-                        new StyleBackground(sprite.texture);
-                }
-                else
-                {
-                    slotImages[i].style.backgroundImage = StyleKeyword.None;
-                }
+                slotImages[i].style.backgroundImage =
+                    sprite != null ? new StyleBackground(sprite) : StyleKeyword.None;
+                
                 slotLabels[i].text = playerInventory.GetCountIndex(i).ToString();
                 
                 slotImages[i].style.display = DisplayStyle.Flex;
