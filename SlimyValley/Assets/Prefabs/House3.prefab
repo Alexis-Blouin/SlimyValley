@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8555043118804549291}
   - component: {fileID: 7110803472158873820}
   - component: {fileID: 2240176969407052235}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: House3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1449443367
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: b1652ef8c6aed954ca951859b66a8f9b, type: 3}

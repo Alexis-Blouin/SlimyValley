@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4986361419170079524}
   - component: {fileID: 9076542042297675631}
   - component: {fileID: 74767793383056047}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TreeSnow
   m_TagString: Attackable
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 2081263489
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2485819714835640888, guid: 86826db66f809dd4993dd5b091d8ae05, type: 3}
