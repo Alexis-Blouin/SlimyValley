@@ -43,7 +43,6 @@ public class Slime : MonoBehaviour
     {
         if (CanSeeTarget)
         {
-            Debug.Log(_target.position);
             _agent.SetDestination(_target.position);
         }
         else
